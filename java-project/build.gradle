@@ -16,3 +16,14 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compile project(':json-display')
 }
+
+task showDate {
+    dependsOn build
+    group = 'my tasks'
+    description = 'Show current date'
+    doLast {
+        println ''
+        println 'Current Date: ' + new Date()
+        println ''
+    }
+}
