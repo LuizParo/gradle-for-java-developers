@@ -17,13 +17,28 @@ dependencies {
     compile project(':json-display')
 }
 
-task showDate {
-    dependsOn build
-    group = 'my tasks'
-    description = 'Show current date'
-    doLast {
-        println ''
-        println 'Current Date: ' + new Date()
-        println ''
+//task showDate {
+//    dependsOn build
+//    group = 'my tasks'
+//    description = 'Show current date'
+//    doLast {
+//        println ''
+//        println 'Current Date: ' + new Date()
+//        println ''
+//    }
+//}
+
+class ShowDate extends DefaultTask {
+    String dateMessage = "Date is: "
+
+    @TaskAction
+    void showDate() {
+        println dateMessage + new Date()
     }
+}
+
+task showDate(type: ShowDate)
+
+task customShowDate(type: ShowDate) {
+    dateMessage = "Custom time is: "
 }
