@@ -52,9 +52,7 @@ public class SaleEvent {
 
         System.out.println(saleEvent.toString());
 
-        Gson gson = new GsonBuilder().create();
-        String json = gson.toJson(saleEvent);
+        String json = JsonDisplay.showJson(saleEvent);
         System.out.println(json);
-
     }
 }
