@@ -1,7 +1,15 @@
+buildscript {
+    dependencies {
+        classpath files('show-date/build/libs/show-date-1.0-SNAPSHOT.jar')
+    }
+}
+
 plugins {
     id 'java'
     id 'project-report'
 }
+
+apply plugin: 'show-date-plugin'
 
 group 'info.garagesalesapp'
 version '1.0-SNAPSHOT'
@@ -28,17 +36,17 @@ dependencies {
 //    }
 //}
 
-class ShowDate extends DefaultTask {
-    String dateMessage = "Date is: "
-
-    @TaskAction
-    void showDate() {
-        println dateMessage + new Date()
-    }
-}
-
-task showDate(type: ShowDate)
-
-task customShowDate(type: ShowDate) {
-    dateMessage = "Custom time is: "
-}
+//class ShowDate extends DefaultTask {
+//    String dateMessage = "Date is: "
+//
+//    @TaskAction
+//    void showDate() {
+//        println dateMessage + new Date()
+//    }
+//}
+//
+//task showDate(type: ShowDate)
+//
+//task customShowDate(type: ShowDate) {
+//    dateMessage = "Custom time is: "
+//}
